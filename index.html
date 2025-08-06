@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termux E-Learning - Plateforme Officielle</title>
+    <link rel="stylesheet" href="asset/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Termux E-Learning</h1>
+        <p>Inscrivez-vous pour nos formations digitales et soumettez votre projet dès maintenant !</p>
+    </header>
+
+    <main class="main-container">
+
+        <section class="section-presentation">
+            <h2>À propos de l'administrateur</h2>
+            <div class="presentation-content">
+                <img src="asset/logo.jpeg" alt="Photo de l'administrateur" class="admin-photo">
+                <p>
+                    Je m'appelle Termux et je suis le fondateur de Termux E-Learning. Ma passion est de démocratiser l'accès à la connaissance en informatique. Grâce à cette plateforme, mon objectif est de former la prochaine génération de professionnels du digital, en vous offrant un accompagnement personnalisé et des ressources de qualité. Rejoignez-nous pour transformer votre passion en compétences concrètes !
+                </p>
+            </div>
+        </section>
+
+        <div class="forms-container">
+
+            <section class="form-card" id="projet-section">
+                <h3>Soumettez votre idée de projet</h3>
+                <p class="description-text">Décrivez votre projet en quelques lignes pour que nous puissions évaluer son potentiel.</p>
+                <form action="https://formspree.io/f/votre_email_ici@exemple.com" method="POST" id="project-form">
+                    <div class="form-group">
+                        <label for="project-nom">Nom du projet :</label>
+                        <input type="text" id="project-nom" name="Nom du Projet" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-description">Description :</label>
+                        <textarea id="project-description" name="Description du Projet" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-motivation">Vos motivations pour ce projet :</label>
+                        <textarea id="project-motivation" name="Motivations du Projet" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Soumettre le projet</button>
+                </form>
+            </section>
+            
+            <section class="form-card" id="inscription-section">
+                <h3>Formulaire d'inscription</h3>
+                <p class="description-text">Veuillez remplir ce formulaire pour vous inscrire à la formation de votre choix.</p>
+                <form action="https://formspree.io/f/votre_email_ici@exemple.com" method="POST" id="registration-form">
+                    <fieldset>
+                        <legend>Section de formation</legend>
+                        <div class="form-group-inline">
+                            <label><input type="radio" name="section" value="Développement Web" required> Développement Web</label>
+                            <label><input type="radio" name="section" value="Développement Mobile"> Développement Mobile</label>
+                            <label><input type="radio" name="section" value="Langage de Programmation"> Langage de Programmation</label>
+                            <label><input type="radio" name="section" value="Sécurité Informatique"> Sécurité Informatique</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Informations personnelles</legend>
+                        <div class="form-group">
+                            <label for="nom">Nom :</label>
+                            <input type="text" id="nom" name="Nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prenom">Prénom :</label>
+                            <input type="text" id="prenom" name="Prénom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email :</label>
+                            <input type="email" id="email" name="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">Numéro de téléphone :</label>
+                            <input type="tel" id="telephone" name="Téléphone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="motivation">Vos motivations :</label>
+                            <textarea id="motivation" name="Motivation" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="disponibilite">Heures de disponibilité :</label>
+                            <input type="text" id="disponibilite" name="Disponibilité" required>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Préférence de suivi</legend>
+                        <div class="form-group-inline">
+                            <label><input type="radio" name="suivi" value="Google Meet" required> Google Meet</label>
+                            <label><input type="radio" name="suivi" value="Discord"> Discord</label>
+                            <label><input type="radio" name="suivi" value="Zoom"> Zoom</label>
+                        </div>
+                    </fieldset>
+                    
+                    <button type="submit" class="submit-btn">S'inscrire</button>
+
+                </form>
+            </section>
+        </div>
+        
+    </main>
+
+    <div class="countdown-container">
+        <h3 id="countdown-title">Clôture des inscriptions et soumissions dans :</h3>
+        <div class="countdown-timer">
+            <span id="jours"></span><span class="unit">Jours</span>
+            <span id="heures"></span><span class="unit">Heures</span>
+            <span id="minutes"></span><span class="unit">Minutes</span>
+            <span id="secondes"></span><span class="unit">Secondes</span>
+        </div>
+    </div>
+    
+    <div id="lock-overlay" class="lock-overlay hidden">
+        <div class="lock-content">
+            <svg class="lock-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17a2 2 0 01-2-2V9a2 2 0 012-2 2 2 0 012 2v6a2 2 0 01-2 2zm6-9h-1V7a5 5 0 00-10 0v1H6a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V10a2 2 0 00-2-2zM8 7a4 4 0 018 0v1h-8V7z"/></svg>
+            <h2>Plateforme verouillée</h2>
+            <p>Le délai de soumission et d'inscription est terminé. Merci pour votre intérêt.</p>
+            <a href="mailto:termuxdev225@gmail.com" class="contact-btn">Contacter l'administrateur</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Termux E-Learning. Tous droits réservés.</p>
+    </footer>
+
+    <script src="asset/script.js"></script>
+</body>
+</html>s

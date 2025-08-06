@@ -1,12 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const registrationForm = document.getElementById('registration-form');
-    const projectForm = document.getElementById('project-form');
+    const multiStepForm = document.getElementById('multistep-form');
+    const step1 = document.getElementById('step-1');
+    const step2 = document.getElementById('step-2');
+    const nextBtn = document.getElementById('next-btn');
+
     const lockOverlay = document.getElementById('lock-overlay');
     const formsContainer = document.querySelector('.forms-container');
     const countdownTitle = document.getElementById('countdown-title');
     const countdownTimer = document.querySelector('.countdown-timer');
 
-   
+    
     function getSunday16h30() {
         const now = new Date();
         const dayOfWeek = now.getDay(); 
@@ -32,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (distance < 0) {
             clearInterval(countdownInterval);
-            // Verrouillage de la plateforme
             formsContainer.classList.add('hidden');
             countdownTitle.textContent = "La plateforme est verouillée.";
             countdownTimer.classList.add('hidden');
@@ -46,14 +48,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1000);
 
     
-    const handleFormSubmit = async (e) => {
+    nextBtn.addEventListener('click', () => {
+        
+        const requiredInputs = step1.querySelectorAll('[required]');
+        let allValid = true;
+        requiredInputs.forEach(input => {
+            if (!input.checkValidity()) {
+                allValid = false;
+                input.reportValidity();
+            }
+        });
+
+        if (allValid) {
+           
+            step1.classList.add('fade-out');
+            setTimeout(() => {
+                step1.classList.add('hidden');
+                step2.classList.remove('hidden');
+                step2.classList.add('fade-in');
+            }, 500); // Durée de l'animation
+        }
+    });
+
+    
+    multiStepForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const form = e.target;
-        const formData = new FormData(form);
+        
+        
+        const formData = new FormData(multiStepForm);
 
         try {
-            const response = await fetch(form.action, {
-                method: form.method,
+            const response = await fetch(multiStepForm.action, {
+                method: multiStepForm.method,
                 body: formData,
                 headers: {
                     'Accept': 'application/json'
@@ -61,17 +87,17 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                alert("Votre soumission a été envoyée avec succès !");
-                form.reset();
+                alert("Votre candidature a été envoyée avec succès !");
+                multiStepForm.reset();
+             
+                step2.classList.add('hidden');
+                step1.classList.remove('hidden');
             } else {
-                alert("Une erreur est survenue. Veuillez réessayer.");
+                alert("Une erreur s'est produite lors de la soumission. Veuillez réessayer.");
             }
         } catch (error) {
-            alert("Une erreur de connexion est survenue. Vérifiez votre réseau.");
+            console.error('Erreur:', error);
+            alert("Une erreur de connexion s'est produite. Veuillez vérifier votre réseau.");
         }
-    };
-
-    registrationForm.addEventListener('submit', handleFormSubmit);
-    projectForm.addEventListener('submit', handleFormSubmit);
-
+    });
 });

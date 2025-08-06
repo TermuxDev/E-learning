@@ -27,80 +27,78 @@
         </section>
 
         <div class="forms-container">
-
-            <section class="form-card" id="projet-section">
-                <h3>Soumettez votre idée de projet</h3>
-                <p class="description-text">Décrivez votre projet en quelques lignes pour que nous puissions évaluer son potentiel.</p>
-                <form action="https://formspree.io/f/mldlpkay" method="POST" id="project-form">
-                    <div class="form-group">
-                        <label for="project-nom">Nom du projet :</label>
-                        <input type="text" id="project-nom" name="Nom du Projet" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="project-description">Description :</label>
-                        <textarea id="project-description" name="Description du Projet" rows="4" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="project-motivation">Vos motivations pour ce projet :</label>
-                        <textarea id="project-motivation" name="Motivations du Projet" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Soumettre le projet</button>
-                </form>
-            </section>
-            
-            <section class="form-card" id="inscription-section">
-                <h3>Formulaire d'inscription</h3>
-                <p class="description-text">Veuillez remplir ce formulaire pour vous inscrire à la formation de votre choix.</p>
-                <form action="https://formspree.io/f/mldlpkay" method="POST" id="registration-form">
-                    <fieldset>
-                        <legend>Section de formation</legend>
-                        <div class="form-group-inline">
-                            <label><input type="radio" name="section" value="Développement Web" required> Développement Web</label>
-                            <label><input type="radio" name="section" value="Développement Mobile"> Développement Mobile</label>
-                            <label><input type="radio" name="section" value="Langage de Programmation"> Langage de Programmation</label>
-                            <label><input type="radio" name="section" value="Sécurité Informatique"> Sécurité Informatique</label>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Informations personnelles</legend>
-                        <div class="form-group">
-                            <label for="nom">Nom :</label>
-                            <input type="text" id="nom" name="Nom" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="prenom">Prénom :</label>
-                            <input type="text" id="prenom" name="Prénom" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email :</label>
-                            <input type="email" id="email" name="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="telephone">Numéro de téléphone :</label>
-                            <input type="tel" id="telephone" name="Téléphone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="motivation">Vos motivations :</label>
-                            <textarea id="motivation" name="Motivation" rows="3" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="disponibilite">Heures de disponibilité :</label>
-                            <input type="text" id="disponibilite" name="Disponibilité" required>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Préférence de suivi</legend>
-                        <div class="form-group-inline">
-                            <label><input type="radio" name="suivi" value="Google Meet" required> Google Meet</label>
-                            <label><input type="radio" name="suivi" value="Discord"> Discord</label>
-                            <label><input type="radio" name="suivi" value="Zoom"> Zoom</label>
-                        </div>
-                    </fieldset>
+            <section class="form-card full-width">
+                <h3>Inscription & Soumission de Projet</h3>
+                <p class="description-text">Remplissez les deux étapes pour finaliser votre candidature.</p>
+                
+                <form action="https://formspree.io/f/mldlpkay" method="POST" id="multistep-form">
                     
-                    <button type="submit" class="submit-btn">S'inscrire</button>
+                    <div id="step-1" class="form-step">
+                        <fieldset>
+                            <legend>Section de formation</legend>
+                            <div class="form-group-inline">
+                                <label><input type="radio" name="section" value="Développement Web" required> Développement Web</label>
+                                <label><input type="radio" name="section" value="Développement Mobile"> Développement Mobile</label>
+                                <label><input type="radio" name="section" value="Langage de Programmation"> Langage de Programmation</label>
+                                <label><input type="radio" name="section" value="Sécurité Informatique"> Sécurité Informatique</label>
+                            </div>
+                        </fieldset>
 
+                        <fieldset>
+                            <legend>Informations personnelles</legend>
+                            <div class="form-group">
+                                <label for="nom">Nom :</label>
+                                <input type="text" id="nom" name="Nom" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="prenom">Prénom :</label>
+                                <input type="text" id="prenom" name="Prénom" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email :</label>
+                                <input type="email" id="email" name="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telephone">Numéro de téléphone :</label>
+                                <input type="tel" id="telephone" name="Téléphone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="motivation">Vos motivations :</label>
+                                <textarea id="motivation" name="Motivation" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="disponibilite">Heures de disponibilité :</label>
+                                <input type="text" id="disponibilite" name="Disponibilité" required>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Préférence de suivi</legend>
+                            <div class="form-group-inline">
+                                <label><input type="radio" name="suivi" value="Google Meet" required> Google Meet</label>
+                                <label><input type="radio" name="suivi" value="Discord"> Discord</label>
+                                <label><input type="radio" name="suivi" value="Zoom"> Zoom</label>
+                            </div>
+                        </fieldset>
+                        <button type="button" class="submit-btn" id="next-btn">Suivant</button>
+                    </div>
+
+                    <div id="step-2" class="form-step hidden">
+                        <p class="description-text">Décrivez votre projet en quelques lignes pour que nous puissions évaluer son potentiel.</p>
+                        <div class="form-group">
+                            <label for="project-nom">Nom du projet :</label>
+                            <input type="text" id="project-nom" name="Nom du Projet" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="project-description">Description :</label>
+                            <textarea id="project-description" name="Description du Projet" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="project-motivation">Vos motivations pour ce projet :</label>
+                            <textarea id="project-motivation" name="Motivations du Projet" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Soumettre l'ensemble</button>
+                    </div>
                 </form>
             </section>
         </div>
